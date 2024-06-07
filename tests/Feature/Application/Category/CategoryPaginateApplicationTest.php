@@ -1,10 +1,8 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 use App\Models\Category;
 use Core\Application\Category\CategoryPaginateApplication;
-use Core\Application\Category\DataTransfer\CategoryOutput;
-use Core\Application\Category\DataTransfer\CategoryUpdateInput;
 use Core\Domain\Repository\CategoryRepositoryInterface;
 
 describe('CategoryPaginateApplication Feature Test', function () {

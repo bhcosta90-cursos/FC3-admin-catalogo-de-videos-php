@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 use Core\Application\Category\CategoryInsertApplication;
 use Core\Application\Category\DataTransfer\{CategoryInsertInput, CategoryOutput};

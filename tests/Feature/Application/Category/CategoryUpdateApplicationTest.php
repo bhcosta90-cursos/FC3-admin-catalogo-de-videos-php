@@ -1,10 +1,9 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 use App\Models\Category;
 use Core\Application\Category\CategoryUpdateApplication;
-use Core\Application\Category\DataTransfer\CategoryOutput;
-use Core\Application\Category\DataTransfer\CategoryUpdateInput;
+use Core\Application\Category\DataTransfer\{CategoryOutput, CategoryUpdateInput};
 use Core\Domain\Repository\CategoryRepositoryInterface;
 
 describe('CategoryUpdateApplication Feature Test', function () {
