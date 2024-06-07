@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 use Core\Application\Category\{CategoryShowApplication};
 use Core\Application\Exception\EntityNotFoundException;
@@ -27,7 +29,7 @@ describe('CategoryShowApplication Unit Test', function () {
             ->once();
 
         $application = new CategoryShowApplication(repository: $repository);
-        expect(fn () => $application->handle('id'))
+        expect(fn() => $application->handle('id'))
             ->toThrow(new EntityNotFoundException("category", "id"));
     });
 });

@@ -1,7 +1,9 @@
-<?php declare(strict_types = 1);
+<?php
 
-use Core\Application\Category\DataTransfer\{CategoryUpdateInput};
+declare(strict_types=1);
+
 use Core\Application\Category\{CategoryUpdateApplication};
+use Core\Application\Category\DataTransfer\{CategoryUpdateInput};
 use Core\Application\Exception\EntityNotFoundException;
 use Core\Domain\Repository\CategoryRepositoryInterface;
 use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
@@ -57,7 +59,7 @@ describe('CategoryUpdateApplication Unit Test', function () {
         $mockInput = mock(CategoryUpdateInput::class, ['id', 'name', 'description', false]);
 
         $application = new CategoryUpdateApplication(repository: $repository);
-        expect(fn () => $application->handle($mockInput))
+        expect(fn() => $application->handle($mockInput))
             ->toThrow(new EntityNotFoundException("category", "id"));
     });
 });

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Core\Domain\Entity\Traits;
 
@@ -26,16 +26,16 @@ trait MethodMagicTrait
 
     public function id(): string
     {
-        if($this->id === null) {
+        if ($this->id === null) {
             $this->id = Id::random();
         }
 
-        return (string) $this->id;
+        return (string)$this->id;
     }
 
     public function createdAt(): string
     {
-        if($this->createdAt === null) {
+        if ($this->createdAt === null) {
             $this->createdAt = new DateTime();
         }
 

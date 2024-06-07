@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Core\Application\Category;
 
@@ -15,7 +15,7 @@ readonly class CategoryShowApplication
 
     public function handle(string $id): DataTransfer\CategoryOutput
     {
-        if(!$entityFind = $this->repository->show($id)) {
+        if (!$entityFind = $this->repository->show($id)) {
             throw new EntityNotFoundException("category", $id);
         }
 

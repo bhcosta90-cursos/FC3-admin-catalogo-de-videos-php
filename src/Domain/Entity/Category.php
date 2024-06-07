@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Core\Domain\Entity;
 
@@ -23,6 +23,14 @@ class Category
         $this->validate();
     }
 
+    protected function validate(): void
+    {
+        DomainValidation::strMaxLength($this->name);
+        DomainValidation::strMinLength($this->name);
+        DomainValidation::strCanNullAndMinLength($this->description);
+        DomainValidation::strCanNullAndMaxLength($this->description);
+    }
+
     public function enable(): void
     {
         $this->isActive = true;
@@ -35,16 +43,8 @@ class Category
 
     public function update(string $name, ?string $description): void
     {
-        $this->name        = $name;
+        $this->name = $name;
         $this->description = $description;
         $this->validate();
-    }
-
-    protected function validate(): void
-    {
-        DomainValidation::strMaxLength($this->name);
-        DomainValidation::strMinLength($this->name);
-        DomainValidation::strCanNullAndMinLength($this->description);
-        DomainValidation::strCanNullAndMaxLength($this->description);
     }
 }

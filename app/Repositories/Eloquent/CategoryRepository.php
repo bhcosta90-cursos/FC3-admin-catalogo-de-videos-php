@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Repositories\Eloquent;
 
@@ -20,14 +20,25 @@ class CategoryRepository implements CategoryRepositoryInterface
     public function insert(Category $category): Category
     {
         $entityDb = $this->category->create([
-            'id'          => $category->id(),
-            'created_at'  => $category->createdAt(),
-            'name'        => $category->name,
-            'is_active'   => $category->isActive,
+            'id' => $category->id(),
+            'created_at' => $category->createdAt(),
+            'name' => $category->name,
+            'is_active' => $category->isActive,
             'description' => $category->description,
         ]);
 
         return $this->toEntity($entityDb);
+    }
+
+    protected function toEntity(object $category): Category
+    {
+        return new Category(
+            name: $category->name,
+            isActive: $category->is_active,
+            description: $category->description,
+            id: new Id($category->id),
+            createdAt: $category->created_at,
+        );
     }
 
     public function show(string $id): Category
@@ -41,18 +52,20 @@ class CategoryRepository implements CategoryRepositoryInterface
         int $page = 1,
         int $limit = 10
     ): PaginationInterface {
-        return PaginationPresenter::make($this->category->query()
-            ->filter('name', $filter)
-            ->orderBy('name', $order)
-            ->paginate($limit, ['*'], 'page', $page));
+        return PaginationPresenter::make(
+            $this->category->query()
+                ->filter('name', $filter)
+                ->orderBy('name', $order)
+                ->paginate($limit, ['*'], 'page', $page)
+        );
     }
 
     public function update(Category $category): Category
     {
         $model = CategoryModel::findOrFail($category->id());
         $model->update([
-            'name'        => $category->name,
-            'is_active'   => $category->isActive,
+            'name' => $category->name,
+            'is_active' => $category->isActive,
             'description' => $category->description,
         ]);
 
@@ -62,16 +75,5 @@ class CategoryRepository implements CategoryRepositoryInterface
     public function delete(string $id): bool
     {
         return CategoryModel::findOrFail($id)->delete();
-    }
-
-    protected function toEntity(object $category): Category
-    {
-        return new Category(
-            name: $category->name,
-            isActive: $category->is_active,
-            description: $category->description,
-            id: new Id($category->id),
-            createdAt: $category->created_at,
-        );
     }
 }

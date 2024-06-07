@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Database\Factories;
 
@@ -17,9 +19,9 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'        => $this->faker->name,
+            'name' => $this->faker->name,
             'description' => $this->faker->sentence(2),
-            'is_active'   => random_int(0, 1),
+            'is_active' => random_int(0, 1),
         ];
     }
 }

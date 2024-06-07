@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Core\Application\Category\DataTransfer;
 
@@ -13,6 +13,5 @@ readonly class CategoryOutput
         public ?string $description,
         public string $created_at,
     ) {
-
     }
 }

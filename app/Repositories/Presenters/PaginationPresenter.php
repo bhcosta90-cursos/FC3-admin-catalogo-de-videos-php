@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Repositories\Presenters;
 
@@ -23,9 +23,21 @@ class PaginationPresenter implements PaginationInterface
         );
     }
 
-    public static function make(LengthAwarePaginator $paginator): self
+    protected function resolveItems(array $items): array
     {
-        return new self($paginator);
+        $response = [];
+
+        foreach ($items as $item) {
+            $stdClass = new stdClass();
+
+            foreach ($item->toArray() as $key => $value) {
+                $stdClass->{$key} = $value;
+            }
+
+            $response[] = $stdClass;
+        }
+
+        return $response;
     }
 
     /**
@@ -34,6 +46,11 @@ class PaginationPresenter implements PaginationInterface
     public function items(): array
     {
         return $this->items;
+    }
+
+    public static function make(LengthAwarePaginator $paginator): self
+    {
+        return new self($paginator);
     }
 
     public function total(): int
@@ -69,22 +86,5 @@ class PaginationPresenter implements PaginationInterface
     public function from(): int
     {
         return $this->paginator->lastItem() ?? 0;
-    }
-
-    protected function resolveItems(array $items): array
-    {
-        $response = [];
-
-        foreach ($items as $item) {
-            $stdClass = new stdClass();
-
-            foreach ($item->toArray() as $key => $value) {
-                $stdClass->{$key} = $value;
-            }
-
-            $response[] = $stdClass;
-        }
-
-        return $response;
     }
 }
