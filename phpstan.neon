@@ -2,7 +2,8 @@ includes:
     - vendor/larastan/larastan/extension.neon
 
 parameters:
-
+    ignoreErrors:
+        - '#Access to protected property Core\\Domain\\Entity#'
     paths:
         - app/
         - src/

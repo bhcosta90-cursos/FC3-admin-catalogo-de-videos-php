@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-use Core\Application\Category\DataTransfer\{CategoryFindByIdInput};
+use Core\Application\Category\DataTransfer\{CategoryShowInput};
 use Core\Application\Category\{CategoryShowApplication};
 use Core\Domain\Repository\CategoryRepositoryInterface;
 use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
@@ -15,7 +15,7 @@ describe('Category FindById Application Unit Test', function () {
             ->andReturn($this->mockCategory())
             ->once();
 
-        $mockInput = mock(CategoryFindByIdInput::class, ['id']);
+        $mockInput = mock(CategoryShowInput::class, ['id']);
 
         $application = new CategoryShowApplication(repository: $repository);
         $application->handle($mockInput);
