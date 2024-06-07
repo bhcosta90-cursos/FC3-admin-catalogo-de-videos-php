@@ -13,7 +13,12 @@ interface CategoryRepositoryInterface
 
     public function show(string $id): Category;
 
-    public function paginate(string $filter = null, ?string $order = 'ASC', int $page = 1, $limit = 10): PaginationInterface;
+    public function paginate(
+        string $filter = null,
+        ?string $order = 'ASC',
+        int $page = 1,
+        int $limit = 10
+    ): PaginationInterface;
 
     public function update(Category $category): Category;
 
