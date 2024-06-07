@@ -2,7 +2,7 @@
 
 use Core\Domain\Object\Contract\ObjectInterface;
 
-arch('core')
+arch('Core Object')
     ->expect('Core\Domain\Object')
     ->toBeReadonly()
     ->ignoring(ObjectInterface::class)

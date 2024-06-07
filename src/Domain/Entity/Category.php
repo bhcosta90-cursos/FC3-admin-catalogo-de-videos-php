@@ -9,7 +9,7 @@ use Core\Domain\Object\Id;
 use Core\Domain\Validation\DomainValidation;
 use DateTime;
 
-final class Category
+class Category
 {
     use MethodMagicTrait;
 
