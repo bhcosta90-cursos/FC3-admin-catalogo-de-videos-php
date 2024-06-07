@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Core\Domain\Repository;
 
@@ -12,9 +12,9 @@ interface CategoryRepositoryInterface
 
     public function findById(string $id): Category;
 
-    public function findAll(?string $filter = null, ?string $order = 'ASC');
+    public function findAll(string $filter = null, ?string $order = 'ASC');
 
-    public function paginate(?string $filter = null, ?string $order = 'ASC', int $page = 1, $limit = 10): array;
+    public function paginate(string $filter = null, ?string $order = 'ASC', int $page = 1, $limit = 10): array;
 
     public function update(Category $category): Category;
 
