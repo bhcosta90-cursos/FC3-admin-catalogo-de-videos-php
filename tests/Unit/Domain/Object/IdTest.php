@@ -6,7 +6,7 @@ use function PHPUnit\Framework\assertTrue;
 
 use Ramsey\Uuid\Uuid;
 
-describe("Object Id Unit Test", function () {
+describe("Uuid Unit Test", function () {
     test("create a validate id", function () {
         $id = new Id("123e4567-e89b-12d3-a456-426614174000");
         assertTrue(Uuid::isValid((string) $id));

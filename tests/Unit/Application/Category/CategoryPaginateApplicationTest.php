@@ -7,7 +7,7 @@ use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
 
 uses(CategoryRepositoryInterfaceTrait::class);
 
-describe('Category Paginate Application Unit Test', function () {
+describe('CategoryPaginateApplication Unit Test', function () {
     test('when list is empty', function () {
         $repository = mock(CategoryRepositoryInterface::class);
         $repository->shouldReceive('paginate')

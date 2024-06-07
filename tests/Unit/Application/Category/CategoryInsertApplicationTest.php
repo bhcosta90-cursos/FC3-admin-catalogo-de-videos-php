@@ -7,7 +7,7 @@ use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
 
 uses(CategoryRepositoryInterfaceTrait::class);
 
-describe('Category Insert Application Unit Test', function () {
+describe('CategoryInsertApplication Unit Test', function () {
     it('should a create a new category', function () {
         $repository = mock(CategoryRepositoryInterface::class);
         $repository->shouldReceive('insert')

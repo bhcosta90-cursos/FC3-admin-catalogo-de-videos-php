@@ -6,7 +6,7 @@ use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
 
 uses(CategoryRepositoryInterfaceTrait::class);
 
-describe('Category Delete Application Unit Test', function () {
+describe('CategoryDeleteApplication Unit Test', function () {
     it('should delete category', function () {
         $repository = mock(CategoryRepositoryInterface::class);
         $repository->shouldReceive('delete')

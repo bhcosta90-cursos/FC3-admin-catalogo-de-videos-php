@@ -8,7 +8,7 @@ use Core\Domain\Object\Id;
 
 use function PHPUnit\Framework\{assertFalse, assertTrue};
 
-describe('Category Entity Unit Test', function () {
+describe('Category Unit Test', function () {
     test("attributes", function () {
         $category = new Category(
             name: 'name entity',

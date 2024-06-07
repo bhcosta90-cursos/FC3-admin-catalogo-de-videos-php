@@ -8,7 +8,7 @@ use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
 
 uses(CategoryRepositoryInterfaceTrait::class);
 
-describe('Category Update Application Unit Test', function () {
+describe('CategoryUpdateApplication Unit Test', function () {
     it('should update entity when is active is enable', function () {
         $mockEntity = $this->mockCategoryEntity();
         $mockEntity->shouldReceive('enable')->once();

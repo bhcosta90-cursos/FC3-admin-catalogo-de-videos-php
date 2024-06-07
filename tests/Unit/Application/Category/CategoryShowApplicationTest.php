@@ -7,7 +7,7 @@ use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
 
 uses(CategoryRepositoryInterfaceTrait::class);
 
-describe('Category Show Application Unit Test', function () {
+describe('CategoryShowApplication Unit Test', function () {
     it('should show category', function () {
         $repository = mock(CategoryRepositoryInterface::class);
         $repository->shouldReceive('show')
