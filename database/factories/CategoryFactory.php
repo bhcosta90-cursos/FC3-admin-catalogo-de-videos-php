@@ -24,4 +24,20 @@ class CategoryFactory extends Factory
             'is_active'   => random_int(0, 1),
         ];
     }
+
+    public function enable(): self{
+        return $this->state(function () {
+            return [
+                'is_active' => 1,
+            ];
+        });
+    }
+
+    public function disable(): self{
+        return $this->state(function () {
+            return [
+                'is_active' => 1,
+            ];
+        });
+    }
 }

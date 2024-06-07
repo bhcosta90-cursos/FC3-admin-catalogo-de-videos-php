@@ -106,7 +106,7 @@ describe("Category Repository Feature Test", function () {
     });
 
     it('should update a entity', function () {
-        $model = CategoryModel::factory()->create(['is_active' => false]);
+        $model = CategoryModel::factory()->disable()->create();
 
         $domain = $this->repository->show($model->id);
         $domain->update(name: 'category update', description: 'description update');

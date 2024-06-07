@@ -9,7 +9,7 @@ use Core\Domain\Repository\CategoryRepositoryInterface;
 
 describe('CategoryUpdateApplication Feature Test', function () {
     test("create a new entity", function () {
-        $entity = Category::factory()->create(['is_active' => true]);
+        $entity = Category::factory()->enable()->create();
 
         $application = new CategoryUpdateApplication(
             repository: app(CategoryRepositoryInterface::class)
