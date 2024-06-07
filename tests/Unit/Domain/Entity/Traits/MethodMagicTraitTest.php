@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 use Core\Domain\Entity\Traits\MethodMagicTrait;
 use Core\Domain\Object\Id;
@@ -17,7 +17,7 @@ describe('Method Magic Trait Unit Test', function () {
             public ?Id $id = null;
         };
 
-        expect(fn() => $methodMagicTrait->description)->toThrow(\Exception::class)
+        expect(fn () => $methodMagicTrait->description)->toThrow(\Exception::class)
             ->and($methodMagicTrait)->name->toBe('testing')
             ->id()->not->toBeNull()
             ->id->toBeInstanceOf(Id::class)

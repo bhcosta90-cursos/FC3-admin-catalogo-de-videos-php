@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Core\Domain\Entity;
 
@@ -43,7 +43,7 @@ class Category
 
     public function update(string $name, ?string $description): void
     {
-        $this->name = $name;
+        $this->name        = $name;
         $this->description = $description;
         $this->validate();
     }

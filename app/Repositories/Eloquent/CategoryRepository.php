@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Repositories\Eloquent;
 
@@ -20,10 +20,10 @@ class CategoryRepository implements CategoryRepositoryInterface
     public function insert(Category $category): Category
     {
         $entityDb = $this->category->create([
-            'id' => $category->id(),
-            'created_at' => $category->createdAt(),
-            'name' => $category->name,
-            'is_active' => $category->isActive,
+            'id'          => $category->id(),
+            'created_at'  => $category->createdAt(),
+            'name'        => $category->name,
+            'is_active'   => $category->isActive,
             'description' => $category->description,
         ]);
 
@@ -64,8 +64,8 @@ class CategoryRepository implements CategoryRepositoryInterface
     {
         $model = CategoryModel::findOrFail($category->id());
         $model->update([
-            'name' => $category->name,
-            'is_active' => $category->isActive,
+            'name'        => $category->name,
+            'is_active'   => $category->isActive,
             'description' => $category->description,
         ]);
 
