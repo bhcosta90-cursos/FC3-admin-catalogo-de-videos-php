@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Core\Application\Category\DataTransfer;
 
-class CategoriesOutput
+class CategoryPaginateOutput
 {
     public function __construct(
         public array $items,

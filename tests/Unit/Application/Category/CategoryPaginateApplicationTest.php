@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-use Core\Application\Category\DataTransfer\{CategoriesOutput};
+use Core\Application\Category\DataTransfer\{CategoryPaginateOutput};
 use Core\Application\Category\{CategoryPaginateApplication};
 use Core\Domain\Repository\CategoryRepositoryInterface;
 use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
@@ -17,7 +17,7 @@ describe('Category Paginate Application Unit Test', function () {
         $application = new CategoryPaginateApplication(repository: $repository);
         $response    = $application->handle();
 
-        expect($response)->toBeInstanceOf(CategoriesOutput::class)
+        expect($response)->toBeInstanceOf(CategoryPaginateOutput::class)
             ->items->toHaveCount(0);
     });
 
@@ -43,7 +43,7 @@ describe('Category Paginate Application Unit Test', function () {
         $application = new CategoryPaginateApplication(repository: $repository);
         $response    = $application->handle();
 
-        expect($response)->toBeInstanceOf(CategoriesOutput::class)
+        expect($response)->toBeInstanceOf(CategoryPaginateOutput::class)
             ->items->toHaveCount(1);
     });
 });

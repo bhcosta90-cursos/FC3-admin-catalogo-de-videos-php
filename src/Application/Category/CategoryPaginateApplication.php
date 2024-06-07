@@ -12,11 +12,11 @@ readonly class CategoryPaginateApplication
     {
     }
 
-    public function handle(): DataTransfer\CategoriesOutput
+    public function handle(): DataTransfer\CategoryPaginateOutput
     {
         $entityFind = $this->repository->paginate();
 
-        return new DataTransfer\CategoriesOutput(
+        return new DataTransfer\CategoryPaginateOutput(
             items: $entityFind->items(),
             total: $entityFind->total(),
             current_page: $entityFind->currentPage(),
