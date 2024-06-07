@@ -1,7 +1,6 @@
 <?php declare(strict_types = 1);
 
-use Core\Application\Category\DataTransfer\{CategoryShowInput};
-use Core\Application\Category\{CategoryDeleteApplication, CategoryShowApplication};
+use Core\Application\Category\{CategoryDeleteApplication};
 use Core\Domain\Repository\CategoryRepositoryInterface;
 use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
 

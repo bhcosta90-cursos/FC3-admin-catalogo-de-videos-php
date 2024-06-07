@@ -1,6 +1,5 @@
 <?php declare(strict_types = 1);
 
-use Core\Application\Category\DataTransfer\{CategoryShowInput};
 use Core\Application\Category\{CategoryShowApplication};
 use Core\Domain\Repository\CategoryRepositoryInterface;
 use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;

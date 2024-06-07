@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
-use Core\Application\Category\DataTransfer\{CategoryShowInput, CategoryUpdateInput};
-use Core\Application\Category\{CategoryShowApplication, CategoryUpdateApplication};
+use Core\Application\Category\DataTransfer\{CategoryUpdateInput};
+use Core\Application\Category\{CategoryUpdateApplication};
 use Core\Domain\Repository\CategoryRepositoryInterface;
 use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
 
