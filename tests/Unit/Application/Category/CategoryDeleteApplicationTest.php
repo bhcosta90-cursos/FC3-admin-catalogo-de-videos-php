@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 use Core\Application\Category\{CategoryDeleteApplication};
 use Core\Domain\Repository\CategoryRepositoryInterface;

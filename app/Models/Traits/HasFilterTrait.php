@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models\Traits;
 
@@ -10,6 +10,6 @@ trait HasFilterTrait
 {
     public function scopeFilter(Builder $query, string $column, ?string $filter): Builder
     {
-        return $query->when($filter, fn () => $this->where($column, 'like', "%$filter%"));
+        return $query->when($filter, fn() => $this->where($column, 'like', "%$filter%"));
     }
 }

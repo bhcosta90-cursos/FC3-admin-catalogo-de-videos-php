@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Core\Domain\Entity\Traits;
 
@@ -30,7 +30,7 @@ trait MethodMagicTrait
             $this->id = Id::random();
         }
 
-        return (string) $this->id;
+        return (string)$this->id;
     }
 
     public function createdAt(): string

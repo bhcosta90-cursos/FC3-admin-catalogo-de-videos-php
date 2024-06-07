@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 use App\Models\Category as CategoryModel;
 use App\Repositories\Eloquent\CategoryRepository;
@@ -25,11 +25,11 @@ describe("Category Repository Feature Test", function () {
 
         assertDatabaseCount(CategoryModel::class, 1);
         assertDatabaseHas(CategoryModel::class, [
-            'id'          => $response->id,
-            'name'        => 'Category 1',
+            'id' => $response->id,
+            'name' => 'Category 1',
             'description' => 'Description 1',
-            'is_active'   => true,
-            'created_at'  => $response->createdAt,
+            'is_active' => true,
+            'created_at' => $response->createdAt,
         ]);
     });
 
@@ -51,7 +51,7 @@ describe("Category Repository Feature Test", function () {
         CategoryModel::factory(5)->create(['name' => 'Category 1']);
 
         $response = $this->repository->paginate();
-        $items    = collect($response->items());
+        $items = collect($response->items());
 
         expect($response)
             ->total()->toBe(20)
@@ -99,7 +99,7 @@ describe("Category Repository Feature Test", function () {
             ->from()->toBe(5);
 
         $response = $this->repository->paginate(order: 'desc', page: 2);
-        $items    = collect($response->items());
+        $items = collect($response->items());
         expect($items)
             ->first()->name->toBe('Category 2')
             ->last()->name->toBe('Category 1');
@@ -123,11 +123,11 @@ describe("Category Repository Feature Test", function () {
 
         assertDatabaseCount(CategoryModel::class, 1);
         assertDatabaseHas(CategoryModel::class, [
-            'id'          => $response->id,
-            'name'        => 'category update',
+            'id' => $response->id,
+            'name' => 'category update',
             'description' => 'description update',
-            'is_active'   => true,
-            'created_at'  => $response->createdAt,
+            'is_active' => true,
+            'created_at' => $response->createdAt,
         ]);
     });
 

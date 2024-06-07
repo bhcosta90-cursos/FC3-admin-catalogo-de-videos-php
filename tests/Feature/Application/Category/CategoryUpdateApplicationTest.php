@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 use App\Models\Category;
 use Core\Application\Category\CategoryUpdateApplication;
@@ -14,12 +15,14 @@ describe('CategoryUpdateApplication Feature Test', function () {
             repository: app(CategoryRepositoryInterface::class)
         );
 
-        $response = $application->handle(new CategoryUpdateInput(
-            id: $entity->id,
-            name: 'category 1 updated',
-            description: 'description 1 updated',
-            isActive: false
-        ));
+        $response = $application->handle(
+            new CategoryUpdateInput(
+                id: $entity->id,
+                name: 'category 1 updated',
+                description: 'description 1 updated',
+                isActive: false
+            )
+        );
 
         expect($response)->toBeInstanceOf(CategoryOutput::class)
             ->name->toBe('category 1 updated')

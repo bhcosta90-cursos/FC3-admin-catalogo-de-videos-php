@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 use Core\Domain\Entity\Category;
 use Core\Domain\Entity\Exception\EntityValidationException;
@@ -80,13 +80,13 @@ describe('Category Unit Test', function () {
             name: 'name entity'
         );
 
-        expect(fn () => new Category(name: 'na', isActive: true))
+        expect(fn() => new Category(name: 'na', isActive: true))
             ->toThrow(new EntityValidationException('The value must be at least 3 characters'))
-            ->and(fn () => $category->update(name: str_repeat('a', 256), description: 'description entity'))
+            ->and(fn() => $category->update(name: str_repeat('a', 256), description: 'description entity'))
             ->toThrow(new EntityValidationException('The value must not be greater than 255 characters'))
-            ->and(fn () => $category->update(name: 'na', description: 'description entity'))
+            ->and(fn() => $category->update(name: 'na', description: 'description entity'))
             ->toThrow(new EntityValidationException('The value must be at least 3 characters'))
-            ->and(fn () => $category->update(name: str_repeat('a', 256), description: 'description entity'))
+            ->and(fn() => $category->update(name: str_repeat('a', 256), description: 'description entity'))
             ->toThrow(new EntityValidationException('The value must not be greater than 255 characters'));
     });
 
@@ -96,13 +96,13 @@ describe('Category Unit Test', function () {
             description: 'description entity'
         );
 
-        expect(fn () => new Category(name: 'name entity', description: 'na'))
+        expect(fn() => new Category(name: 'name entity', description: 'na'))
             ->toThrow(new EntityValidationException('The value must be at least 3 characters'))
-            ->and(fn () => $category->update(name: 'name entity', description: str_repeat('n', 256)))
+            ->and(fn() => $category->update(name: 'name entity', description: str_repeat('n', 256)))
             ->toThrow(new EntityValidationException('The value must not be greater than 255 characters'))
-            ->and(fn () => $category->update(name: 'name entity', description: 'na'))
+            ->and(fn() => $category->update(name: 'name entity', description: 'na'))
             ->toThrow(new EntityValidationException('The value must be at least 3 characters'))
-            ->and(fn () => $category->update(name: 'name entity', description: str_repeat('n', 256)))
+            ->and(fn() => $category->update(name: 'name entity', description: str_repeat('n', 256)))
             ->toThrow(new EntityValidationException('The value must not be greater than 255 characters'));
     });
 });
