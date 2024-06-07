@@ -17,6 +17,7 @@ describe('CategoryInsertApplication Feature Test', function () {
         expect($response)->toBeInstanceOf(CategoryOutput::class)
             ->name->toBe('Category Test')
             ->description->toBe('Description Test')
+            ->is_active->toBeTrue()
             ->id->not->toBeNull()
             ->created_at->not->toBeNull();
     });
