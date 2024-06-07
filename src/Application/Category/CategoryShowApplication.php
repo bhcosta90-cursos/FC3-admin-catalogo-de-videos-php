@@ -15,7 +15,7 @@ readonly class CategoryShowApplication
 
     public function handle(string $id): DataTransfer\CategoryOutput
     {
-        if(!$entityFind = $this->repository->show($id)){
+        if(!$entityFind = $this->repository->show($id)) {
             throw new EntityNotFoundException("category", $id);
         }
 

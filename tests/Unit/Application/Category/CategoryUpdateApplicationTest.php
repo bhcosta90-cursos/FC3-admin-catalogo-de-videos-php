@@ -47,7 +47,7 @@ describe('Category Update Application Unit Test', function () {
         $application->handle($mockInput);
     });
 
-    it("should exception when entity not found", function(){
+    it("should exception when entity not found", function () {
         $repository = mock(CategoryRepositoryInterface::class);
         $repository->shouldReceive('show')
             ->withArgs(['id'])
@@ -57,7 +57,7 @@ describe('Category Update Application Unit Test', function () {
         $mockInput = mock(CategoryUpdateInput::class, ['id', 'name', 'description', false]);
 
         $application = new CategoryUpdateApplication(repository: $repository);
-        expect(fn() => $application->handle($mockInput))
+        expect(fn () => $application->handle($mockInput))
             ->toThrow(new EntityNotFoundException("category", "id"));
     });
 });

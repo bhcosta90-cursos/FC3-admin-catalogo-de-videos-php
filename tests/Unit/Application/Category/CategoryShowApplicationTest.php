@@ -27,7 +27,7 @@ describe('Category Show Application Unit Test', function () {
             ->once();
 
         $application = new CategoryShowApplication(repository: $repository);
-        expect(fn() => $application->handle('id'))
+        expect(fn () => $application->handle('id'))
             ->toThrow(new EntityNotFoundException("category", "id"));
     });
 });
