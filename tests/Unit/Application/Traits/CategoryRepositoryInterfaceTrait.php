@@ -10,7 +10,7 @@ use Mockery\MockInterface;
 
 trait CategoryRepositoryInterfaceTrait
 {
-    public function mockCategory(string $name = null, string $description = null): MockInterface|Category
+    public function mockCategoryEntity(string $name = null, string $description = null): MockInterface|Category
     {
         $mock = mock(Category::class, [
             $name ?: 'mock name',

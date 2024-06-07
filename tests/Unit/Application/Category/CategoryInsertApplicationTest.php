@@ -8,10 +8,10 @@ use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
 uses(CategoryRepositoryInterfaceTrait::class);
 
 describe('Category Insert Application Unit Test', function () {
-    it('create a new category', function () {
+    it('should a create a new category', function () {
         $repository = mock(CategoryRepositoryInterface::class);
         $repository->shouldReceive('insert')
-            ->andReturn($this->mockCategory())
+            ->andReturn($this->mockCategoryEntity())
             ->once();
 
         $mockInput = mock(CategoryInsertInput::class, ['name', 'description']);

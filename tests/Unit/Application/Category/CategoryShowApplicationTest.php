@@ -7,12 +7,12 @@ use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
 
 uses(CategoryRepositoryInterfaceTrait::class);
 
-describe('Category FindById Application Unit Test', function () {
-    it('get category', function () {
+describe('Category Show Application Unit Test', function () {
+    it('should get category', function () {
         $repository = mock(CategoryRepositoryInterface::class);
         $repository->shouldReceive('show')
             ->withArgs(['id'])
-            ->andReturn($this->mockCategory())
+            ->andReturn($this->mockCategoryEntity())
             ->once();
 
         $mockInput = mock(CategoryShowInput::class, ['id']);
