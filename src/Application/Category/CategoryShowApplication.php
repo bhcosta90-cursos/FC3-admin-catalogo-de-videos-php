@@ -6,7 +6,7 @@ namespace Core\Application\Category;
 
 use Core\Domain\Repository\CategoryRepositoryInterface;
 
-readonly class CategoryFindByIdApplication
+readonly class CategoryShowApplication
 {
     public function __construct(protected CategoryRepositoryInterface $repository)
     {
@@ -14,7 +14,7 @@ readonly class CategoryFindByIdApplication
 
     public function handle(DataTransfer\CategoryFindByIdInput $input): DataTransfer\CategoryOutput
     {
-        $entityFind = $this->repository->findById($input->id);
+        $entityFind = $this->repository->show($input->id);
 
         return new DataTransfer\CategoryOutput(
             id: $entityFind->id(),

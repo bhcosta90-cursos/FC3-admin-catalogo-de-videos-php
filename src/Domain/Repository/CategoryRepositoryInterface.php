@@ -10,7 +10,7 @@ interface CategoryRepositoryInterface
 {
     public function insert(Category $category): Category;
 
-    public function findById(string $id): Category;
+    public function show(string $id): Category;
 
     public function findAll(string $filter = null, ?string $order = 'ASC');
 
