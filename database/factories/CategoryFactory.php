@@ -25,7 +25,8 @@ class CategoryFactory extends Factory
         ];
     }
 
-    public function enable(): self{
+    public function enable(): self
+    {
         return $this->state(function () {
             return [
                 'is_active' => 1,
@@ -33,7 +34,8 @@ class CategoryFactory extends Factory
         });
     }
 
-    public function disable(): self{
+    public function disable(): self
+    {
         return $this->state(function () {
             return [
                 'is_active' => 1,
