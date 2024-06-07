@@ -14,6 +14,9 @@ describe('CategoryUpdateApplication Unit Test', function () {
     it('should update entity when is active is enable', function () {
         $mockEntity = $this->mockCategoryEntity();
         $mockEntity->shouldReceive('enable')->once();
+        $mockEntity->shouldReceive('update')
+            ->withArgs(['name', 'description'])
+            ->once();
 
         $repository = mock(CategoryRepositoryInterface::class);
         $repository->shouldReceive('show')
@@ -33,6 +36,9 @@ describe('CategoryUpdateApplication Unit Test', function () {
     it('should update entity when is active is disable', function () {
         $mockEntity = $this->mockCategoryEntity();
         $mockEntity->shouldReceive('disable')->once();
+        $mockEntity->shouldReceive('update')
+            ->withArgs(['name', 'description'])
+            ->once();
 
         $repository = mock(CategoryRepositoryInterface::class);
         $repository->shouldReceive('show')
