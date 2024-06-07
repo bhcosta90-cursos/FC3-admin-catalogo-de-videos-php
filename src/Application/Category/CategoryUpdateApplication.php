@@ -20,6 +20,7 @@ readonly class CategoryUpdateApplication
         }
 
         $input->isActive ? $entityFind->enable() : $entityFind->disable();
+        $entityFind->update(name: $input->name, description: $input->description);
         $entityUpdate = $this->repository->update($entityFind);
 
         return new DataTransfer\CategoryOutput(
