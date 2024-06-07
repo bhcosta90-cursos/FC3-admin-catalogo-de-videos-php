@@ -12,9 +12,9 @@ readonly class CategoryShowApplication
     {
     }
 
-    public function handle(DataTransfer\CategoryShowInput $input): DataTransfer\CategoryOutput
+    public function handle(string $id): DataTransfer\CategoryOutput
     {
-        $entityFind = $this->repository->show($input->id);
+        $entityFind = $this->repository->show($id);
 
         return new DataTransfer\CategoryOutput(
             id: $entityFind->id(),

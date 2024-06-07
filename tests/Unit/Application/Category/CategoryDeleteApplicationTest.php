@@ -1,21 +1,21 @@
 <?php declare(strict_types = 1);
 
 use Core\Application\Category\DataTransfer\{CategoryShowInput};
-use Core\Application\Category\{CategoryShowApplication};
+use Core\Application\Category\{CategoryDeleteApplication, CategoryShowApplication};
 use Core\Domain\Repository\CategoryRepositoryInterface;
 use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
 
 uses(CategoryRepositoryInterfaceTrait::class);
 
-describe('Category Show Application Unit Test', function () {
-    it('should show category', function () {
+describe('Category Delete Application Unit Test', function () {
+    it('should delete category', function () {
         $repository = mock(CategoryRepositoryInterface::class);
-        $repository->shouldReceive('show')
+        $repository->shouldReceive('delete')
             ->withArgs(['id'])
-            ->andReturn($this->mockCategoryEntity())
+            ->andReturn(true)
             ->once();
 
-        $application = new CategoryShowApplication(repository: $repository);
+        $application = new CategoryDeleteApplication(repository: $repository);
         $application->handle('id');
     });
 });
