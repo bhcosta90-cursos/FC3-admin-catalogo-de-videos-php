@@ -18,6 +18,4 @@ interface CategoryRepositoryInterface
     public function update(Category $category): Category;
 
     public function delete(string $id): bool;
-
-    public function toCategory(object $data): Category;
 }
