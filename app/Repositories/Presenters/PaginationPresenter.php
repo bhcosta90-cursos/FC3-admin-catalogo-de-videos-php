@@ -38,12 +38,12 @@ class PaginationPresenter implements PaginationInterface
 
     public function total(): int
     {
-        return $this->paginator->total() ?? 0;
+        return $this->paginator->total();
     }
 
     public function lastPage(): int
     {
-        return $this->paginator->lastPage() ?? 0;
+        return $this->paginator->lastPage();
     }
 
     public function firstPage(): int
@@ -53,12 +53,12 @@ class PaginationPresenter implements PaginationInterface
 
     public function currentPage(): int
     {
-        return $this->paginator->currentPage() ?? 0;
+        return $this->paginator->currentPage();
     }
 
     public function perPage(): int
     {
-        return $this->paginator->perPage() ?? 0;
+        return $this->paginator->perPage();
     }
 
     public function to(): int

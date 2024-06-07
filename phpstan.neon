@@ -4,6 +4,7 @@ includes:
 parameters:
     ignoreErrors:
         - '#Access to protected property Core\\Domain\\Entity#'
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder::filter#'
     paths:
         - app/
         - src/
