@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Core\Application\Category;
 
+use Core\Application\Exception\EntityNotFoundException;
 use Core\Domain\Repository\CategoryRepositoryInterface;
 
 readonly class CategoryUpdateApplication
@@ -14,7 +15,10 @@ readonly class CategoryUpdateApplication
 
     public function handle(DataTransfer\CategoryUpdateInput $input): DataTransfer\CategoryOutput
     {
-        $entityFind = $this->repository->show($input->id);
+        if(!$entityFind = $this->repository->show($id = $input->id)){
+            throw new EntityNotFoundException("category", $id);
+        }
+
         $input->isActive ? $entityFind->enable() : $entityFind->disable();
         $entityUpdate = $this->repository->update($entityFind);
 

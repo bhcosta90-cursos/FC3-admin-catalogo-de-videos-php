@@ -2,6 +2,7 @@
 
 use Core\Application\Category\DataTransfer\{CategoryUpdateInput};
 use Core\Application\Category\{CategoryUpdateApplication};
+use Core\Application\Exception\EntityNotFoundException;
 use Core\Domain\Repository\CategoryRepositoryInterface;
 use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
 
@@ -44,5 +45,19 @@ describe('Category Update Application Unit Test', function () {
 
         $application = new CategoryUpdateApplication(repository: $repository);
         $application->handle($mockInput);
+    });
+
+    it("should exception when entity not found", function(){
+        $repository = mock(CategoryRepositoryInterface::class);
+        $repository->shouldReceive('show')
+            ->withArgs(['id'])
+            ->andReturn(null)
+            ->once();
+
+        $mockInput = mock(CategoryUpdateInput::class, ['id', 'name', 'description', false]);
+
+        $application = new CategoryUpdateApplication(repository: $repository);
+        expect(fn() => $application->handle($mockInput))
+            ->toThrow(new EntityNotFoundException("category", "id"));
     });
 });

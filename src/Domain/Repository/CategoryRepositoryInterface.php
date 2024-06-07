@@ -11,7 +11,7 @@ interface CategoryRepositoryInterface
 {
     public function insert(Category $category): Category;
 
-    public function show(string $id): Category;
+    public function show(string $id): ?Category;
 
     public function paginate(
         string $filter = null,

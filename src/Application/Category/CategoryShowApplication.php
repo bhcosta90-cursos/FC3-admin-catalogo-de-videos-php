@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Core\Application\Category;
 
+use Core\Application\Exception\EntityNotFoundException;
 use Core\Domain\Repository\CategoryRepositoryInterface;
 
 readonly class CategoryShowApplication
@@ -14,7 +15,9 @@ readonly class CategoryShowApplication
 
     public function handle(string $id): DataTransfer\CategoryOutput
     {
-        $entityFind = $this->repository->show($id);
+        if(!$entityFind = $this->repository->show($id)){
+            throw new EntityNotFoundException("category", $id);
+        }
 
         return new DataTransfer\CategoryOutput(
             id: $entityFind->id(),
