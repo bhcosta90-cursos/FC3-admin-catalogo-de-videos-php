@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace Core\Application\Category;
 
-use Core\Domain\Entity\Category;
 use Core\Domain\Repository\CategoryRepositoryInterface;
 
 readonly class CategoryFindByIdApplication

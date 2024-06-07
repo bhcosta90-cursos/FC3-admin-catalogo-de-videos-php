@@ -1,9 +1,7 @@
 <?php declare(strict_types = 1);
 
-use Core\Application\Category\CategoryFindByIdApplication;
-use Core\Application\Category\CategoryInsertApplication;
-use Core\Application\Category\DataTransfer\CategoryFindByIdInput;
-use Core\Application\Category\DataTransfer\CategoryInsertInput;
+use Core\Application\Category\DataTransfer\{CategoryFindByIdInput};
+use Core\Application\Category\{CategoryFindByIdApplication};
 use Core\Domain\Repository\CategoryRepositoryInterface;
 use Tests\Unit\Application\Traits\CategoryRepositoryInterfaceTrait;
 
